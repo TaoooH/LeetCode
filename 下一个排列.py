@@ -16,12 +16,11 @@ class Solution:
             i = n - 2
             while i >= 0 and nums[i] >= nums[i + 1]:
                 i -= 1
-            
+            # 倒序遍历，寻找第一个比nums[i]大的元素nums[j], 交换nums[i], nums[j]
             if i >= 0:
                 j = n - 1
                 while j >= 0 and nums[i] >= nums[j]:
                     j -= 1
-                # 交换i, j
                 nums[i], nums[j] = nums[j], nums[i]
             
             # 将nums[i + 1: ]按升序排列
