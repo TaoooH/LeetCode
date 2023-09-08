@@ -1,6 +1,8 @@
 # 下一个排列
-# 倒叙遍历，寻找第一个升序
-# 调换升序，将调换后左边数字的右边按升序排列
+# 倒叙遍历，寻找第一个相邻升序(i, j)
+# 在nums[i+1: ]中寻找第一个大于nums[i]的元素
+# 对二者进行调换，生成更大的字典数据
+# 将调换后nums[i+1: ]按升序排列
 class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         """
