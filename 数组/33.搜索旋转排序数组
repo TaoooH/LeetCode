@@ -1,0 +1,38 @@
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        if len(nums) == 1:
+            if nums[0] == target:
+                return 0
+            else:
+                return -1
+        mid = len(nums) // 2
+        # 左边是有序的，右边是无序的
+        if nums[mid] >= nums[0]:
+            if nums[0] <= target:
+                left = 0
+                while left <= mid:
+                    if nums[left] == target:
+                        return left
+                    left += 1
+            else:
+                left = mid + 1
+                while left < len(nums):
+                    if nums[left] == target:
+                        return left
+                    left += 1
+            return -1
+        # 右边是有序的，左边是无序的
+        else:
+            if nums[-1] >= target:
+                left = mid
+                while left < len(nums):
+                    if nums[left] == target:
+                        return left
+                    left += 1
+            else:
+                left = 0
+                while left < mid:
+                    if nums[left] == target:
+                        return left
+                    left += 1
+            return -1
